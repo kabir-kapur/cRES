@@ -1,0 +1,326 @@
+{
+  "contractName": "cResToken",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "supply",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[],\"name\":\"supply\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/cResToken.sol\":\"cResToken\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/cResToken.sol\":{\"keccak256\":\"0xa556491de8e8a18416d351eb1e97875878f838a0326fe0872c2a15014650b772\",\"urls\":[\"bzz-raw://312ffa9dbc87c55c32a98130ba9364c6eb17387a612d921e8db8d5dc4832c87e\",\"dweb:/ipfs/QmZoc9q4dVV1Gpi6ydmCnpXz4tyDz5erTjGFdCgS6ATMPh\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50607580601d6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c8063047fc9aa14602d575b600080fd5b60336035565b005b6000620f424090505056fea265627a7a7231582077991e06777e5951ed42dca9e227d42d1c315f328e66a4493f44ed6aa05fe63664736f6c63430005100032",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c8063047fc9aa14602d575b600080fd5b60336035565b005b6000620f424090505056fea265627a7a7231582077991e06777e5951ed42dca9e227d42d1c315f328e66a4493f44ed6aa05fe63664736f6c63430005100032",
+  "sourceMap": "26:205:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;26:205:0;;;;;;;",
+  "deployedSourceMap": "26:205:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;26:205:0;;;;;;;;;;;;;;;;;;;158:71;;;:::i;:::-;;;193:19;215:7;193:29;;158:71;:::o",
+  "source": "pragma solidity ^0.5.16;\n\ncontract cResToken{\n    /*\n    NEED TO MAKE:\n    - constructor\n    - total # of tokens setter\n    - total # of tokens reader */\n    function supply() public {\n        uint256 totalSupply = 1000000;\n    }\n}",
+  "sourcePath": "/Users/kabirkapur/Desktop/cRes/contracts/cResToken.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/cResToken.sol",
+    "exportedSymbols": {
+      "cResToken": [
+        10
+      ]
+    },
+    "id": 11,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".16"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:0"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 10,
+        "linearizedBaseContracts": [
+          10
+        ],
+        "name": "cResToken",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 8,
+              "nodeType": "Block",
+              "src": "183:46:0",
+              "statements": [
+                {
+                  "assignments": [
+                    5
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 5,
+                      "name": "totalSupply",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 8,
+                      "src": "193:19:0",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 4,
+                        "name": "uint256",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "193:7:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 7,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "hexValue": "31303030303030",
+                    "id": 6,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "number",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "215:7:0",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_1000000_by_1",
+                      "typeString": "int_const 1000000"
+                    },
+                    "value": "1000000"
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "193:29:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 9,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "supply",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "173:2:0"
+            },
+            "returnParameters": {
+              "id": 3,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "183:0:0"
+            },
+            "scope": 10,
+            "src": "158:71:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 11,
+        "src": "26:205:0"
+      }
+    ],
+    "src": "0:231:0"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/cResToken.sol",
+      "exportedSymbols": {
+        "cResToken": [
+          10
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.5",
+            ".16"
+          ]
+        },
+        "id": 1,
+        "name": "PragmaDirective",
+        "src": "0:24:0"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            10
+          ],
+          "name": "cResToken",
+          "scope": 11
+        },
+        "children": [
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "supply",
+              "scope": 10,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 2,
+                "name": "ParameterList",
+                "src": "173:2:0"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 3,
+                "name": "ParameterList",
+                "src": "183:0:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        5
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "totalSupply",
+                          "scope": 8,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "uint256",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "uint256",
+                              "type": "uint256"
+                            },
+                            "id": 4,
+                            "name": "ElementaryTypeName",
+                            "src": "193:7:0"
+                          }
+                        ],
+                        "id": 5,
+                        "name": "VariableDeclaration",
+                        "src": "193:19:0"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "hexvalue": "31303030303030",
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "subdenomination": null,
+                          "token": "number",
+                          "type": "int_const 1000000",
+                          "value": "1000000"
+                        },
+                        "id": 6,
+                        "name": "Literal",
+                        "src": "215:7:0"
+                      }
+                    ],
+                    "id": 7,
+                    "name": "VariableDeclarationStatement",
+                    "src": "193:29:0"
+                  }
+                ],
+                "id": 8,
+                "name": "Block",
+                "src": "183:46:0"
+              }
+            ],
+            "id": 9,
+            "name": "FunctionDefinition",
+            "src": "158:71:0"
+          }
+        ],
+        "id": 10,
+        "name": "ContractDefinition",
+        "src": "26:205:0"
+      }
+    ],
+    "id": 11,
+    "name": "SourceUnit",
+    "src": "0:231:0"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x7f202C4070F195540129B4773454C0c573a46880",
+      "transactionHash": "0x6d03935936aef347e3d816cffcabd475623ad6d38a27467c29d9c406135b486c"
+    }
+  },
+  "schemaVersion": "3.4.1",
+  "updatedAt": "2021-07-16T07:04:33.622Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
