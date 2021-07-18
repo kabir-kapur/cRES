@@ -1,6 +1,6 @@
 pragma solidity ^0.6.0;
 
-import "@chainlink/contracts/src/v0.6/ChainlinkClient.sol";
+import "@chainlink/contracts/src/v0.6/ChainlinkClient.sol"; // importing v0.6 (stable)
 
 contract BTCAPIConsumer is ChainlinkClient{ 
     /*
@@ -36,7 +36,16 @@ contract cResToken{
     NEED TO MAKE:
     - constructor
     - total # of tokens setter
-    - total # of tokens reader */
+    - total # of tokens reader 
+    - V = product over t periods(TOKEN tokens/POOL tokens^(arbitrary
+        time-affected weight that devalues as a function of trading 
+        events undergone as of current epoch 't'))  
+    - V = product over t tokens((TOKEN tokens/POOL tokens)^(1/t))
+    - */
+    function valueAsset() private{
+        return
+    }
+
     function supply() public {
         uint256 totalSupply = 1000000;
     }
