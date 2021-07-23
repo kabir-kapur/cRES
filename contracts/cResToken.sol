@@ -20,8 +20,8 @@ contract cResToken{
         _totalSupply = 10000;
     }
 
-    function spotPrice(uint256 celoRatio, uint256 celoInReserve, uint256 totalInReserve) view public returns(uint256 spotPricecRES){
-        return ((celoRatio/100)/celoInReserve)/((1 - celoRatio)/(totalInReserve - celoInReserve));
+    function spotPrice(uint256 celoRatio, uint256 celoInReserve, uint256 totalInReserve) public view returns (uint, uint, uint){
+        return (celoRatio, celoInReserve, totalInReserve);
     }
 
     function supply() public view returns(uint){

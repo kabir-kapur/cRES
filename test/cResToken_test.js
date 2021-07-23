@@ -15,7 +15,12 @@ contract("cResToken", accounts => { // contract instantiation
         const spotPrice = await cResTokenInstance.spotPrice.call(50, 10000000, 15000000);
 
         console.log(spotPrice.valueOf());
-        assert.equal(spotPrice.valueOf(), 1.5, "Spot Price is not 1.5");
+        let cRatio = spotPrice.valueOf()[0]/100;
+        let rRatio = 1 - cRatio;
+        let cWeight = spotPrice.valueOf()[1];
+        let rWeight = spotPrice.valueOf()[2];
+        let spotPriceVal = (cRatio/cWeight) / (rRatio/rWeight);
+        assert.equal(spotPriceVal, 1.5, "Spot Price is not 1.5");
     })
 });
    
