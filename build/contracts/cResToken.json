@@ -36,7 +36,7 @@
       "outputs": [
         {
           "internalType": "uint256",
-          "name": "_totalSupply",
+          "name": "",
           "type": "uint256"
         }
       ],
@@ -44,12 +44,12 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.0+commit.26b70077\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"celoRatio\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"celoInReserve\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"totalInReserve\",\"type\":\"uint256\"}],\"name\":\"spotPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"spotPricecRES\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"supply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"_totalSupply\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/cResToken.sol\":\"cResToken\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@chainlink/contracts/src/v0.6/Chainlink.sol\":{\"keccak256\":\"0x7bef34fd97f611103c6113025e3d6af755f326069767e72266698f64258e62b6\",\"urls\":[\"bzz-raw://82125916319b872093aa8599d2c00bd07d363386a74a4d0268c6edf25c366f82\",\"dweb:/ipfs/QmXTnVy1XEw387NduvHHFQNmnzYTwFUhVz95kRvRrcwdHd\"]},\"@chainlink/contracts/src/v0.6/ChainlinkClient.sol\":{\"keccak256\":\"0x9f8883b8b5b76bba151e5f30d4c353b8a3f15ee3d97117deee4cccd91fe8640f\",\"urls\":[\"bzz-raw://ee9b132779ac24df4f8a5e45dfc256acc70eb5e43f715de36593e488f20a44ff\",\"dweb:/ipfs/QmagJ1htVpP2ZYLAdHEpSEMx1Xd3csbUHAhLctryVDsNFg\"]},\"@chainlink/contracts/src/v0.6/interfaces/ChainlinkRequestInterface.sol\":{\"keccak256\":\"0xe513c0f60edf13da7d82625489cf2008c7b66170f3b1ed1606b84c73f95b17ad\",\"urls\":[\"bzz-raw://78e083ef252b80bb63a5aa126bc7283cd9b88767dfdf0190d46802bc32756ecf\",\"dweb:/ipfs/QmdTyEQwX5ecoXR1rBh8DLDJpCYVDM85JjjR2sEJdE9wAA\"]},\"@chainlink/contracts/src/v0.6/interfaces/ENSInterface.sol\":{\"keccak256\":\"0xdef864af6e516477773ea246b73531b1836de5bea4ac1cfd8be6e7f4b3f3c3fd\",\"urls\":[\"bzz-raw://ad3346f5a393cd62d8de678a77d8dc323d8f9e21f0aaa504d0d0b990c8b61477\",\"dweb:/ipfs/QmQ2n8329Fzb7Zbzk5wqYvAfKJ9QPwTdCUmm9zUqhL67a1\"]},\"@chainlink/contracts/src/v0.6/interfaces/LinkTokenInterface.sol\":{\"keccak256\":\"0xe245a7be950c94d87bb775ae9ee9fbd693fbe2987778e6ce0b04605ea44b7b68\",\"urls\":[\"bzz-raw://bd2c3165d949fc66fe407b96eb3dc2092c7e800f4c073b411bf7b96de3e156c9\",\"dweb:/ipfs/QmcfJhR1Np4GsLWnww2Duqks2wEzYk8VDTvCAYy7MisG1r\"]},\"@chainlink/contracts/src/v0.6/interfaces/PointerInterface.sol\":{\"keccak256\":\"0x08aed19c3bef1ae2d90fc0d9d28a497fd7f312991ed08fedfe545de6b9a476e4\",\"urls\":[\"bzz-raw://b2e7b4acfbd4cfbd4c3e266011955954ec0f5a2323647e81b936c66cb35e1b5e\",\"dweb:/ipfs/QmXVrpdo76r2WhxE7gJPj3dGycZYKKvK39VNVaB7HyhAbT\"]},\"@chainlink/contracts/src/v0.6/vendor/BufferChainlink.sol\":{\"keccak256\":\"0x14f13139229a2fef8f705f29f91de0bc81bcd5070ec75b4bd3fd82c1536ca685\",\"urls\":[\"bzz-raw://9a403d7f17b316c7b8837a25df0563de2a1c3121b7cd43473abce8ce6742bd29\",\"dweb:/ipfs/QmWZYi4xJGjPt1pEM7mS7XsA1eF2zpcxiiuGHuiTndXHo7\"]},\"@chainlink/contracts/src/v0.6/vendor/CBORChainlink.sol\":{\"keccak256\":\"0xe7c6e4290ac2a41a138e6bd89d89a2779f66847a5ee6fb5a6f2a3386e5ce589d\",\"urls\":[\"bzz-raw://1eb0e7821c4963b125b47c93e31cd6e073d2b87550651054fc526e63915d92ab\",\"dweb:/ipfs/QmVJq2sNTzX4Hfyway8JiY4RoQw4vQRSbzJWbsC7JsiyUs\"]},\"@chainlink/contracts/src/v0.6/vendor/ENSResolver.sol\":{\"keccak256\":\"0xfd992937d215ad669f69e91fefbe62cad8973ae329b4e810ca9b26a1ae0b6bb7\",\"urls\":[\"bzz-raw://afb189e69fb705795bf41dea9ff20bab191164fc4876803168372f9bf1a1a0f1\",\"dweb:/ipfs/QmUBbNkFiJh9BrPepNVYMpxnEk1a5xqun8VT6Zb2jC3FtV\"]},\"project:/contracts/cResToken.sol\":{\"keccak256\":\"0x1629c319c0a14febf1d4e4aefa5c11684a9532219e551410a6c926a0174975dd\",\"urls\":[\"bzz-raw://db64819edfa62ebbeb51e3f0c5faa53fadf69b8a0da18ec2dac54d489ed8a566\",\"dweb:/ipfs/QmfM7GdYViYxNPSGDt4RnCJHKZgy2ZNneU8hLdDTzpUksW\"]}},\"version\":1}",
-  "bytecode": "0x608060405261271060005534801561001657600080fd5b50610116806100266000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c8063047fc9aa146037578063d5f638c8146053575b600080fd5b603d60a6565b6040518082815260200191505060405180910390f35b609060048036036060811015606757600080fd5b8101908080359060200190929190803590602001909291908035906020019092919050505060ae565b6040518082815260200191505060405180910390f35b600080905090565b6000828203846001038160bd57fe5b04836064868160c857fe5b048160cf57fe5b048160d657fe5b049050939250505056fea2646970667358221220a3e65397bed785bcdb310a04886e9a97718e73240b195b9808e652cc2085b88964736f6c63430006000033",
-  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060325760003560e01c8063047fc9aa146037578063d5f638c8146053575b600080fd5b603d60a6565b6040518082815260200191505060405180910390f35b609060048036036060811015606757600080fd5b8101908080359060200190929190803590602001909291908035906020019092919050505060ae565b6040518082815260200191505060405180910390f35b600080905090565b6000828203846001038160bd57fe5b04836064868160c857fe5b048160cf57fe5b048160d657fe5b049050939250505056fea2646970667358221220a3e65397bed785bcdb310a04886e9a97718e73240b195b9808e652cc2085b88964736f6c63430006000033",
-  "sourceMap": "113:763:9:-:0;;;530:5;510:25;;113:763;8:9:-1;5:2;;;30:1;27;20:12;5:2;113:763:9;;;;;;;",
-  "deployedSourceMap": "113:763:9:-:0;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;113:763:9;;;;;;;;;;;;;;;;;;;;;;;;782:92;;;:::i;:::-;;;;;;;;;;;;;;;;;;;543:233;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;543:233:9;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;782:92;820:17;855:12;848:19;;782:92;:::o;543:233::-;648:21;754:13;737:14;:30;725:9;721:1;:13;720:48;;;;;;704:13;699:3;689:9;:13;;;;;;688:29;;;;;;687:82;;;;;;680:89;;543:233;;;;;:::o",
-  "source": "pragma solidity ^0.6.0;\n\nimport \"@chainlink/contracts/src/v0.6/ChainlinkClient.sol\"; // importing v0.6 (stable)\n\ncontract cResToken{\n    /*\n    NEED TO MAKE:\n    - constructor\n    - total # of tokens setter\n    - total # of tokens reader \n    - V = product over t periods(TOKEN tokens/POOL tokens^(arbitrary\n        time-affected weight that devalues as a function of trading \n        events undergone as of current epoch 't'))  \n    - V = product over t tokens((TOKEN tokens/POOL tokens)^(1/t))\n    - */\n\n    uint _totalSupply = 10000;\n\n\n    function spotPrice(uint256 celoRatio, uint256 celoInReserve, uint256 totalInReserve) view public returns(uint256 spotPricecRES){\n        return ((celoRatio/100)/celoInReserve)/((1 - celoRatio)/(totalInReserve - celoInReserve));\n    }\n\n    function supply() view public returns(uint _totalSupply){\n        return _totalSupply;\n    }\n}\n\n\n\n////////////////// DATA FEED STUFF //////////////////\n\n\n\n// contract BTCAPIConsumer is ChainlinkClient{ \n//     /*\n//     parent: ChainlinkClient\n//     */\n//     uint256 public btcPrice; // price of btc\n\n//     address private oracle;\n//     bytes32 private jobId;\n//     uint256 private fee;\n\n//     constructor() public{\n//         setPublicChainlinkToken();\n\n//         oracle = 0xECcB8F881cE2552EdA4115a162ffE2666B601c33; // https://market.link/data-providers/eb5c92a8-6093-4657-9a68-a6d10719946e/integrations?network=1\n//         jobId = \"0391a670ba8e4a2f80750acfe65b0c89\";\n//         fee = .1 * 10**18; // fee of .1 LINK\n//     }\n\n//     function requestBTCPrice() public returns (bytes32 reqID){\n//         Chainlink.Request memory req = buildChainlinkRequest(jobId, address(this), this.fulfillBTC.selector);\n//         req.add(\"base\", \"BTC/USDT:CXDXF\");\n        \n//         return sendChainlinkRequestTo(oracle, req, fee);\n//     }\n\n//     function fulfillBTC(bytes32 _requestId, uint256 _btcPrice) public recordChainlinkFulfillment(_requestId){\n//         btcPrice = _btcPrice;\n//     }\n// }",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.0+commit.26b70077\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"celoRatio\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"celoInReserve\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"totalInReserve\",\"type\":\"uint256\"}],\"name\":\"spotPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"spotPricecRES\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"supply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/cResToken.sol\":\"cResToken\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@chainlink/contracts/src/v0.6/Chainlink.sol\":{\"keccak256\":\"0x7bef34fd97f611103c6113025e3d6af755f326069767e72266698f64258e62b6\",\"urls\":[\"bzz-raw://82125916319b872093aa8599d2c00bd07d363386a74a4d0268c6edf25c366f82\",\"dweb:/ipfs/QmXTnVy1XEw387NduvHHFQNmnzYTwFUhVz95kRvRrcwdHd\"]},\"@chainlink/contracts/src/v0.6/ChainlinkClient.sol\":{\"keccak256\":\"0x9f8883b8b5b76bba151e5f30d4c353b8a3f15ee3d97117deee4cccd91fe8640f\",\"urls\":[\"bzz-raw://ee9b132779ac24df4f8a5e45dfc256acc70eb5e43f715de36593e488f20a44ff\",\"dweb:/ipfs/QmagJ1htVpP2ZYLAdHEpSEMx1Xd3csbUHAhLctryVDsNFg\"]},\"@chainlink/contracts/src/v0.6/interfaces/ChainlinkRequestInterface.sol\":{\"keccak256\":\"0xe513c0f60edf13da7d82625489cf2008c7b66170f3b1ed1606b84c73f95b17ad\",\"urls\":[\"bzz-raw://78e083ef252b80bb63a5aa126bc7283cd9b88767dfdf0190d46802bc32756ecf\",\"dweb:/ipfs/QmdTyEQwX5ecoXR1rBh8DLDJpCYVDM85JjjR2sEJdE9wAA\"]},\"@chainlink/contracts/src/v0.6/interfaces/ENSInterface.sol\":{\"keccak256\":\"0xdef864af6e516477773ea246b73531b1836de5bea4ac1cfd8be6e7f4b3f3c3fd\",\"urls\":[\"bzz-raw://ad3346f5a393cd62d8de678a77d8dc323d8f9e21f0aaa504d0d0b990c8b61477\",\"dweb:/ipfs/QmQ2n8329Fzb7Zbzk5wqYvAfKJ9QPwTdCUmm9zUqhL67a1\"]},\"@chainlink/contracts/src/v0.6/interfaces/LinkTokenInterface.sol\":{\"keccak256\":\"0xe245a7be950c94d87bb775ae9ee9fbd693fbe2987778e6ce0b04605ea44b7b68\",\"urls\":[\"bzz-raw://bd2c3165d949fc66fe407b96eb3dc2092c7e800f4c073b411bf7b96de3e156c9\",\"dweb:/ipfs/QmcfJhR1Np4GsLWnww2Duqks2wEzYk8VDTvCAYy7MisG1r\"]},\"@chainlink/contracts/src/v0.6/interfaces/PointerInterface.sol\":{\"keccak256\":\"0x08aed19c3bef1ae2d90fc0d9d28a497fd7f312991ed08fedfe545de6b9a476e4\",\"urls\":[\"bzz-raw://b2e7b4acfbd4cfbd4c3e266011955954ec0f5a2323647e81b936c66cb35e1b5e\",\"dweb:/ipfs/QmXVrpdo76r2WhxE7gJPj3dGycZYKKvK39VNVaB7HyhAbT\"]},\"@chainlink/contracts/src/v0.6/vendor/BufferChainlink.sol\":{\"keccak256\":\"0x14f13139229a2fef8f705f29f91de0bc81bcd5070ec75b4bd3fd82c1536ca685\",\"urls\":[\"bzz-raw://9a403d7f17b316c7b8837a25df0563de2a1c3121b7cd43473abce8ce6742bd29\",\"dweb:/ipfs/QmWZYi4xJGjPt1pEM7mS7XsA1eF2zpcxiiuGHuiTndXHo7\"]},\"@chainlink/contracts/src/v0.6/vendor/CBORChainlink.sol\":{\"keccak256\":\"0xe7c6e4290ac2a41a138e6bd89d89a2779f66847a5ee6fb5a6f2a3386e5ce589d\",\"urls\":[\"bzz-raw://1eb0e7821c4963b125b47c93e31cd6e073d2b87550651054fc526e63915d92ab\",\"dweb:/ipfs/QmVJq2sNTzX4Hfyway8JiY4RoQw4vQRSbzJWbsC7JsiyUs\"]},\"@chainlink/contracts/src/v0.6/vendor/ENSResolver.sol\":{\"keccak256\":\"0xfd992937d215ad669f69e91fefbe62cad8973ae329b4e810ca9b26a1ae0b6bb7\",\"urls\":[\"bzz-raw://afb189e69fb705795bf41dea9ff20bab191164fc4876803168372f9bf1a1a0f1\",\"dweb:/ipfs/QmUBbNkFiJh9BrPepNVYMpxnEk1a5xqun8VT6Zb2jC3FtV\"]},\"project:/contracts/cResToken.sol\":{\"keccak256\":\"0x365220dea03ea0b6eef6e865baef65c0ac033a015d45f713b6d2eee00f2276e7\",\"urls\":[\"bzz-raw://6eab2c76e27785a4b431ded95c9c1525edc7b32dbcc9023f4da48a6604f45bb5\",\"dweb:/ipfs/QmRATbDb7STAqS9GEdqZjWQnC7HqAwGbTGAnWxgpQuzH2D\"]}},\"version\":1}",
+  "bytecode": "0x608060405261271060005534801561001657600080fd5b50610117806100266000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c8063047fc9aa146037578063d5f638c8146053575b600080fd5b603d60a6565b6040518082815260200191505060405180910390f35b609060048036036060811015606757600080fd5b8101908080359060200190929190803590602001909291908035906020019092919050505060af565b6040518082815260200191505060405180910390f35b60008054905090565b6000828203846001038160be57fe5b04836064868160c957fe5b048160d057fe5b048160d757fe5b049050939250505056fea264697066735822122054eb87d61cb05d8651612a4f0ed35083d5248dc1eaa94d7a32e98a72d8aa2fb064736f6c63430006000033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060325760003560e01c8063047fc9aa146037578063d5f638c8146053575b600080fd5b603d60a6565b6040518082815260200191505060405180910390f35b609060048036036060811015606757600080fd5b8101908080359060200190929190803590602001909291908035906020019092919050505060af565b6040518082815260200191505060405180910390f35b60008054905090565b6000828203846001038160be57fe5b04836064868160c957fe5b048160d057fe5b048160d757fe5b049050939250505056fea264697066735822122054eb87d61cb05d8651612a4f0ed35083d5248dc1eaa94d7a32e98a72d8aa2fb064736f6c63430006000033",
+  "sourceMap": "113:750:9:-:0;;;530:5;510:25;;113:750;8:9:-1;5:2;;;30:1;27;20:12;5:2;113:750:9;;;;;;;",
+  "deployedSourceMap": "113:750:9:-:0;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;113:750:9;;;;;;;;;;;;;;;;;;;;;;;;782:79;;;:::i;:::-;;;;;;;;;;;;;;;;;;;543:233;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;543:233:9;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;782:79;820:4;842:12;;835:19;;782:79;:::o;543:233::-;648:21;754:13;737:14;:30;725:9;721:1;:13;720:48;;;;;;704:13;699:3;689:9;:13;;;;;;688:29;;;;;;687:82;;;;;;680:89;;543:233;;;;;:::o",
+  "source": "pragma solidity ^0.6.0;\n\nimport \"@chainlink/contracts/src/v0.6/ChainlinkClient.sol\"; // importing v0.6 (stable)\n\ncontract cResToken{\n    /*\n    NEED TO MAKE:\n    - constructor\n    - total # of tokens setter\n    - total # of tokens reader \n    - V = product over t periods(TOKEN tokens/POOL tokens^(arbitrary\n        time-affected weight that devalues as a function of trading \n        events undergone as of current epoch 't'))  \n    - V = product over t tokens((TOKEN tokens/POOL tokens)^(1/t))\n    - */\n\n    uint _totalSupply = 10000;\n\n\n    function spotPrice(uint256 celoRatio, uint256 celoInReserve, uint256 totalInReserve) view public returns(uint256 spotPricecRES){\n        return ((celoRatio/100)/celoInReserve)/((1 - celoRatio)/(totalInReserve - celoInReserve));\n    }\n\n    function supply() public view returns(uint){\n        return _totalSupply;\n    }\n}\n\n\n\n////////////////// DATA FEED STUFF //////////////////\n\n\n\n// contract BTCAPIConsumer is ChainlinkClient{ \n//     /*\n//     parent: ChainlinkClient\n//     */\n//     uint256 public btcPrice; // price of btc\n\n//     address private oracle;\n//     bytes32 private jobId;\n//     uint256 private fee;\n\n//     constructor() public{\n//         setPublicChainlinkToken();\n\n//         oracle = 0xECcB8F881cE2552EdA4115a162ffE2666B601c33; // https://market.link/data-providers/eb5c92a8-6093-4657-9a68-a6d10719946e/integrations?network=1\n//         jobId = \"0391a670ba8e4a2f80750acfe65b0c89\";\n//         fee = .1 * 10**18; // fee of .1 LINK\n//     }\n\n//     function requestBTCPrice() public returns (bytes32 reqID){\n//         Chainlink.Request memory req = buildChainlinkRequest(jobId, address(this), this.fulfillBTC.selector);\n//         req.add(\"base\", \"BTC/USDT:CXDXF\");\n        \n//         return sendChainlinkRequestTo(oracle, req, fee);\n//     }\n\n//     function fulfillBTC(bytes32 _requestId, uint256 _btcPrice) public recordChainlinkFulfillment(_requestId){\n//         btcPrice = _btcPrice;\n//     }\n// }",
   "sourcePath": "/Users/kabirkapur/Desktop/cRes/contracts/cResToken.sol",
   "ast": {
     "absolutePath": "project:/contracts/cResToken.sol",
@@ -596,7 +596,7 @@
             "body": {
               "id": 1846,
               "nodeType": "Block",
-              "src": "838:36:9",
+              "src": "825:36:9",
               "statements": [
                 {
                   "expression": {
@@ -605,8 +605,8 @@
                     "name": "_totalSupply",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 1842,
-                    "src": "855:12:9",
+                    "referencedDeclaration": 1808,
+                    "src": "842:12:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -615,7 +615,7 @@
                   "functionReturnParameters": 1843,
                   "id": 1845,
                   "nodeType": "Return",
-                  "src": "848:19:9"
+                  "src": "835:19:9"
                 }
               ]
             },
@@ -641,11 +641,11 @@
                 {
                   "constant": false,
                   "id": 1842,
-                  "name": "_totalSupply",
+                  "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 1847,
-                  "src": "820:17:9",
+                  "src": "820:4:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -666,20 +666,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "819:19:9"
+              "src": "819:6:9"
             },
             "scope": 1848,
-            "src": "782:92:9",
+            "src": "782:79:9",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "public"
           }
         ],
         "scope": 1849,
-        "src": "113:763:9"
+        "src": "113:750:9"
       }
     ],
-    "src": "0:1981:9"
+    "src": "0:1968:9"
   },
   "legacyAST": {
     "attributes": {
@@ -1281,7 +1281,7 @@
                   {
                     "attributes": {
                       "constant": false,
-                      "name": "_totalSupply",
+                      "name": "",
                       "overrides": null,
                       "scope": 1847,
                       "stateVariable": false,
@@ -1303,12 +1303,12 @@
                     ],
                     "id": 1842,
                     "name": "VariableDeclaration",
-                    "src": "820:17:9"
+                    "src": "820:4:9"
                   }
                 ],
                 "id": 1843,
                 "name": "ParameterList",
-                "src": "819:19:9"
+                "src": "819:6:9"
               },
               {
                 "children": [
@@ -1323,38 +1323,38 @@
                           "overloadedDeclarations": [
                             null
                           ],
-                          "referencedDeclaration": 1842,
+                          "referencedDeclaration": 1808,
                           "type": "uint256",
                           "value": "_totalSupply"
                         },
                         "id": 1844,
                         "name": "Identifier",
-                        "src": "855:12:9"
+                        "src": "842:12:9"
                       }
                     ],
                     "id": 1845,
                     "name": "Return",
-                    "src": "848:19:9"
+                    "src": "835:19:9"
                   }
                 ],
                 "id": 1846,
                 "name": "Block",
-                "src": "838:36:9"
+                "src": "825:36:9"
               }
             ],
             "id": 1847,
             "name": "FunctionDefinition",
-            "src": "782:92:9"
+            "src": "782:79:9"
           }
         ],
         "id": 1848,
         "name": "ContractDefinition",
-        "src": "113:763:9"
+        "src": "113:750:9"
       }
     ],
     "id": 1849,
     "name": "SourceUnit",
-    "src": "0:1981:9"
+    "src": "0:1968:9"
   },
   "compiler": {
     "name": "solc",
@@ -1369,7 +1369,7 @@
     }
   },
   "schemaVersion": "3.4.1",
-  "updatedAt": "2021-07-22T22:45:22.364Z",
+  "updatedAt": "2021-07-23T01:11:36.004Z",
   "devdoc": {
     "methods": {}
   },

@@ -13,15 +13,18 @@ contract cResToken{
         events undergone as of current epoch 't'))  
     - V = product over t tokens((TOKEN tokens/POOL tokens)^(1/t))
     - */
+    uint _totalSupply;
 
-    uint _totalSupply = 10000;
 
+    constructor() public{
+        _totalSupply = 10000;
+    }
 
     function spotPrice(uint256 celoRatio, uint256 celoInReserve, uint256 totalInReserve) view public returns(uint256 spotPricecRES){
         return ((celoRatio/100)/celoInReserve)/((1 - celoRatio)/(totalInReserve - celoInReserve));
     }
 
-    function supply() view public returns(uint _totalSupply){
+    function supply() public view returns(uint){
         return _totalSupply;
     }
 }
