@@ -23,6 +23,22 @@
 //
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
+ 
+
+/*
+celo config
+ */ 
+const Web3 = require('web3')
+const ContractKit = require('@celo/contractkit')
+const web3 = new Web3('https://alfajores-forno.celo-testnet.org')
+const kit = ContractKit.newKitFromWeb3(web3)
+const getAccount = require('./getAccount').getAccount
+
+async function awaitWrapper(){
+    let account = await getAccount()
+    kit.connection.addAccount(account.privateKey)
+}
+awaitWrapper()
 
 module.exports = {
   /**
@@ -76,6 +92,10 @@ module.exports = {
       host: "127.0.0.1",
       port: "7545",
       network_id: "*"
+    },
+    alfajores: {
+      provider: kit.connection.web3.currentProvider,
+      network_id: 44787
     }
   },
 
