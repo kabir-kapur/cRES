@@ -36,21 +36,24 @@ contract cResToken is ERC20{
         expectedRatios["cUSD"] = cusd;
     }
 
-
     // function trade(address to, uint amount) external{
     //     emit newTrade(now, msg.sender, to, amount);
     // }
 
-    constructor() ERC20("cRESToken", "cRES") public{
-        _totalSupply = 10000;
+    constructor() ERC20("Celo Reserve Token", "cRES") {
+        uint _totalSupply = 10000;
     }
 
-    function spotPrice(uint256 celoRatio, uint256 celoInReserve, uint256 totalInReserve) public view returns (uint, uint, uint){
-        return (celoRatio, celoInReserve, totalInReserve);
-    }
-
-    function supply() public view returns(uint){
+    function totalSupply() public view override returns(uint){
         return _totalSupply;
+    }
+
+    function name() public view override returns(string memory){
+        return _name;
+    }
+
+    function symbol() public view override returns(string memory){
+        return _symbol;
     }
 }
 
