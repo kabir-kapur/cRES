@@ -28,17 +28,17 @@
 /*
 celo config
  */ 
-const Web3 = require('web3')
-const ContractKit = require('@celo/contractkit')
-const web3 = new Web3('https://alfajores-forno.celo-testnet.org')
-const kit = ContractKit.newKitFromWeb3(web3)
-const getAccount = require('./getAccount').getAccount
+// const Web3 = require('web3')
+// const ContractKit = require('@celo/contractkit')
+// const web3 = new Web3('https://alfajores-forno.celo-testnet.org')
+// const kit = ContractKit.newKitFromWeb3(web3)
+// const getAccount = require('./getAccount').getAccount
 
-async function awaitWrapper(){
-    let account = await getAccount()
-    kit.connection.addAccount(account.privateKey)
-}
-awaitWrapper()
+// async function awaitWrapper(){
+//     let account = await getAccount()
+//     kit.connection.addAccount(account.privateKey)
+// }
+// awaitWrapper()
 
 module.exports = {
   /**
@@ -92,11 +92,11 @@ module.exports = {
       host: "127.0.0.1",
       port: "7545",
       network_id: "*"
-    },
-    alfajores: {
-      provider: kit.connection.web3.currentProvider,
-      network_id: 44787
     }
+    // alfajores: {
+    //   provider: kit.connection.web3.currentProvider,
+    //   network_id: 44787
+    // }
   },
 
   // Set default mocha options here, use special reporters etc.
@@ -107,7 +107,7 @@ module.exports = {
   // Configure your compilers
   compilers: {
     solc: {
-      version: "0.6.0"
+      version: "0.8.0"
       // version: "0.5.1",    // Fetch exact version from solc-bin (default: truffle's version)
       // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
       // settings: {          // See the solidity docs for advice about optimization and evmVersion

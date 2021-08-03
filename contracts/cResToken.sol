@@ -1,8 +1,9 @@
-pragma solidity ^0.6.0;
+pragma solidity ^0.8.0;
 
-import "@chainlink/contracts/src/v0.6/ChainlinkClient.sol"; // importing v0.6 (stable)
+// import "@chainlink/contracts/src/v0.6/ChainlinkClient.sol"; // importing v0.6 (stable)
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-contract cResToken{
+contract cResToken is ERC20{
     /*
     NEED TO MAKE:
     - constructor
@@ -13,10 +14,34 @@ contract cResToken{
         events undergone as of current epoch 't'))  
     - V = product over t tokens((TOKEN tokens/POOL tokens)^(1/t))
     - */
-    uint _totalSupply;
+    uint _totalSupply = 10000;
+
+    string _name = "Celo Reserve Token";
+    string _symbol = "cRES";
 
 
-    constructor() public{
+    event newTrade(
+        uint date, 
+        address from, 
+        address to, 
+        uint amount
+    );
+
+    mapping(string => uint) expectedRatios;
+
+    function setRatios(uint celo, uint cbtc, uint ceth, uint cusd) private{    
+        expectedRatios["CELO"] = celo;
+        expectedRatios["BTC"] = cbtc;
+        expectedRatios["ETH"] = ceth;
+        expectedRatios["cUSD"] = cusd;
+    }
+
+
+    // function trade(address to, uint amount) external{
+    //     emit newTrade(now, msg.sender, to, amount);
+    // }
+
+    constructor() ERC20("cRESToken", "cRES") public{
         _totalSupply = 10000;
     }
 
