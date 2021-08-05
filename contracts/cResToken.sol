@@ -1,9 +1,12 @@
 pragma solidity ^0.8.0;
 
-// import "@chainlink/contracts/src/v0.6/ChainlinkClient.sol"; // importing v0.6 (stable)
+// import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Mintable.sol";
+// import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
 
-contract cResToken is ERC20{
+
+contract cResToken is ERC20, ERC20Burnable{
     /*
     NEED TO MAKE:
     - constructor
@@ -15,34 +18,19 @@ contract cResToken is ERC20{
     - V = product over t tokens((TOKEN tokens/POOL tokens)^(1/t))
     - */
     uint _totalSupply = 10000;
+    uint8 _mintAmt = 1;
 
     string _name = "Celo Reserve Token";
     string _symbol = "cRES";
 
 
-    event newTrade(
-        uint date, 
-        address from, 
-        address to, 
-        uint amount
-    );
+    mapping(string => uint8) expectedRatios;
+    
 
-    mapping(string => uint) expectedRatios;
-
-    function setRatios(uint celo, uint cbtc, uint ceth, uint cusd) private{    
-        expectedRatios["CELO"] = celo;
-        expectedRatios["BTC"] = cbtc;
-        expectedRatios["ETH"] = ceth;
-        expectedRatios["cUSD"] = cusd;
+    constructor() ERC20("Celo Reserve Token", "cRES"){
+        _mint(msg.sender, 1);
     }
 
-    // function trade(address to, uint amount) external{
-    //     emit newTrade(now, msg.sender, to, amount);
-    // }
-
-    constructor() ERC20("Celo Reserve Token", "cRES") {
-        uint _totalSupply = 10000;
-    }
 
     function totalSupply() public view override returns(uint){
         return _totalSupply;
@@ -55,40 +43,17 @@ contract cResToken is ERC20{
     function symbol() public view override returns(string memory){
         return _symbol;
     }
+
+    function btcPrice() public view returns(uint){
+        return address(0xe1955eA2D14e60414eBF5D649699356D8baE98eE).balance;
+    }
+
+    function minterStatus() public returns(uint){
+        _mint(msg.sender, 1000);
+        return btcPrice();
+    }
+    
+    function thisAddress() public view returns(address){
+        return msg.sender;
+    }
 }
-
-
-
-////////////////// DATA FEED STUFF //////////////////
-
-
-
-// contract BTCAPIConsumer is ChainlinkClient{ 
-//     /*
-//     parent: ChainlinkClient
-//     */
-//     uint256 public btcPrice; // price of btc
-
-//     address private oracle;
-//     bytes32 private jobId;
-//     uint256 private fee;
-
-//     constructor() public{
-//         setPublicChainlinkToken();
-
-//         oracle = 0xECcB8F881cE2552EdA4115a162ffE2666B601c33; // https://market.link/data-providers/eb5c92a8-6093-4657-9a68-a6d10719946e/integrations?network=1
-//         jobId = "0391a670ba8e4a2f80750acfe65b0c89";
-//         fee = .1 * 10**18; // fee of .1 LINK
-//     }
-
-//     function requestBTCPrice() public returns (bytes32 reqID){
-//         Chainlink.Request memory req = buildChainlinkRequest(jobId, address(this), this.fulfillBTC.selector);
-//         req.add("base", "BTC/USDT:CXDXF");
-        
-//         return sendChainlinkRequestTo(oracle, req, fee);
-//     }
-
-//     function fulfillBTC(bytes32 _requestId, uint256 _btcPrice) public recordChainlinkFulfillment(_requestId){
-//         btcPrice = _btcPrice;
-//     }
-// }

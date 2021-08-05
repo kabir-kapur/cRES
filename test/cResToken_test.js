@@ -23,6 +23,28 @@ contract("cResToken", accounts => { // contract instantiation
         assert.equal(instSymbol, "cRES", "Symbol is not correct");
     });
 
+    it("Test btcPrice()", async() =>{
+        const cResTokenInstance = await cResToken.deployed();
+        const instBalance = await cResTokenInstance.btcPrice.call();
+
+        console.log(parseInt(instBalance, 10));
+    });
+
+    it("Test isMinter()", async() =>{
+        const cResTokenInstance = await cResToken.deployed();
+        const instMinter = await cResTokenInstance.minterStatus.call();
+
+        assert.equal(parseInt(instMinter, 10), 1000, "Minting broken");
+    });
+
+    it("Test thisAddress()", async() =>{
+        const cResTokenInstance = await cResToken.deployed();
+        const instAddy = await cResTokenInstance.thisAddress.call();
+
+        assert.equal(instAddy, 0x627306090abaB3A6e1400e9345bC60c78a8BEf57, "Address is incorrect");
+    });
+        
+
     // it("Test spotPrice()", async() => {
     //     // modify inputs to test varying environment
     //     const cRatioIn = 10;
