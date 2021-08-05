@@ -30,11 +30,19 @@ contract("cResToken", accounts => { // contract instantiation
         console.log(parseInt(instBalance, 10));
     });
 
-    it("Test isMinter()", async() =>{
+    it("Test mintedBalance()", async() =>{
         const cResTokenInstance = await cResToken.deployed();
         const instMinter = await cResTokenInstance.minterStatus.call();
 
         assert.equal(parseInt(instMinter, 10), 1000, "Minting broken");
+    });
+
+    it("Test mintedInCirculation()", async() =>{
+        const cResTokenInstance = await cResToken.deployed();
+        await cResTokenInstance._mint.call();
+        const supply = await cResTokenInstance.totalSupply.call(); // call supply() 
+
+        console.log(supply);
     });
 
     it("Test thisAddress()", async() =>{

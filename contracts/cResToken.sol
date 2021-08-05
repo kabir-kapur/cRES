@@ -52,7 +52,7 @@ contract cResToken is ERC20, ERC20Burnable{
         _mint(msg.sender, 1000);
         return btcPrice();
     }
-    
+
     function thisAddress() public view returns(address){
         return msg.sender;
     }
