@@ -17,7 +17,7 @@ contract cResToken is ERC20, ERC20Burnable{
         events undergone as of current epoch 't'))  
     - V = product over t tokens((TOKEN tokens/POOL tokens)^(1/t))
     - */
-    uint _totalSupply = 10000;
+    uint _totalSupply = 10000; // arbitrary placeholder
     uint8 _mintAmt = 1;
 
     string _name = "Celo Reserve Token";
@@ -25,12 +25,13 @@ contract cResToken is ERC20, ERC20Burnable{
 
 
     mapping(string => uint8) expectedRatios;
+    mapping(address => uint8) balances;
     
 
     constructor() ERC20("Celo Reserve Token", "cRES"){
         _mint(msg.sender, 1);
+        balances[msg.sender] += 1;
     }
-
 
     function totalSupply() public view override returns(uint){
         return _totalSupply;
@@ -54,6 +55,15 @@ contract cResToken is ERC20, ERC20Burnable{
     }
 
     function thisAddress() public view returns(address){
+        return address(this);
+    }
+    
+    function senderAddress() public view returns(address){
         return msg.sender;
     }
+
+}
+
+contract exchange{
+
 }

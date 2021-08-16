@@ -1,6 +1,5 @@
 const cResToken = artifacts.require("cResToken")
 
-
 contract("cResToken", accounts => { // contract instantiation
     it("Test supply()", async() => { // give this test a name
         const cResTokenInstance = await cResToken.deployed(); // create deployed() promise
@@ -30,20 +29,20 @@ contract("cResToken", accounts => { // contract instantiation
         console.log(parseInt(instBalance, 10));
     });
 
-    it("Test mintedBalance()", async() =>{
-        const cResTokenInstance = await cResToken.deployed();
-        const instMinter = await cResTokenInstance.minterStatus.call();
+    // it("Test mintedBalance()", async() =>{
+    //     const cResTokenInstance = await cResToken.deployed();
+    //     const instMinter = await cResTokenInstance.minterStatus.call();
 
-        assert.equal(parseInt(instMinter, 10), 1000, "Minting broken");
-    });
+    //     assert.equal(parseInt(instMinter, 10), 1000, "Minting broken");
+    // });
 
-    it("Test mintedInCirculation()", async() =>{
-        const cResTokenInstance = await cResToken.deployed();
-        await cResTokenInstance._mint.call();
-        const supply = await cResTokenInstance.totalSupply.call(); // call supply() 
-
-        console.log(supply);
-    });
+    // it("Test mintedInCirculation()", async() =>{
+    //     const cResTokenInstance = await cResToken.deployed();
+    //     await cResTokenInstance._mint.call();
+    //     const supply = await cResTokenInstance.totalSupply.call(); // call supply() 
+        
+    //     console.log(supply);
+    // });
 
     it("Test thisAddress()", async() =>{
         const cResTokenInstance = await cResToken.deployed();
@@ -51,26 +50,12 @@ contract("cResToken", accounts => { // contract instantiation
 
         assert.equal(instAddy, 0x627306090abaB3A6e1400e9345bC60c78a8BEf57, "Address is incorrect");
     });
-        
 
-    // it("Test spotPrice()", async() => {
-    //     // modify inputs to test varying environment
-    //     const cRatioIn = 10;
-    //     const cWeightIn = 100000000;
-    //     const rWeightIn = 15000000;
+    it("Test transferFrom()", async() =>{
+        const cResTokenInstance = await cResToken.deployed();
+        const transferBool = await cResTokenInstance.transfer.call(web3.currentProvider.selectedAddress,  1);
 
-    //     const targetVal = ((cRatioIn/100)/cWeightIn) / (((100 - cRatioIn)/100)/rWeightIn);
-
-    //     const cResTokenInstance = await cResToken.deployed();
-    //     const spotPriceMetrics = await cResTokenInstance.spotPrice.call(cRatioIn, cWeightIn, rWeightIn);
-
-    //     let cRatioOut = spotPriceMetrics.valueOf()[0]/100; // declare valuation variables
-    //     let rRatioOut = 1 - cRatioOut;
-    //     let cWeightOut = spotPriceMetrics.valueOf()[1];
-    //     let rWeightOut = spotPriceMetrics.valueOf()[2];
-    //     let spotPriceVal = (cRatioOut/cWeightOut) / (rRatioOut/rWeightOut);
-         
-    //     assert.equal(spotPriceVal, targetVal, "spot price received does not match target"); // perform test
-    // })
+        assert.true(transferBool, "Transfer failed");
+    });
 });
    
