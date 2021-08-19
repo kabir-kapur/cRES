@@ -2,62 +2,21 @@ const cResToken = artifacts.require("cResToken");
 const exchange = artifacts.require("exchange");
 
 contract("cResToken", accounts => { // contract instantiation
-    it("Test supply()", async() => { // give this test a name
-        const cResTokenInstance = await cResToken.deployed(); // create deployed() promise
-        const supply = await cResTokenInstance.totalSupply.call(); // call supply() 
+    it("Test mint()", async() => { // mint() function test
+        const instance = await cResToken.deployed();
+        // const account = "0x1134599Ec20682d7EcaD53d4E5d8e818a07D80B1";
+        const account = instance.address; // address of deployed contract
+        const amount = 10;
 
-        assert.equal(supply.valueOf(), 10000, "Supply is not 10000"); // assert supply == correct val
+        const minted = await instance.mint(amount); // mint to deployed contract address 
+        const balance = await instance.balanceOf(account); // get balance of deployed contract address 
+
+        assert.equal(balance, amount, "Contract balance does not match mint amount");
     });
 
-    it("Test name()", async() => {
-        const cResTokenInstance = await cResToken.deployed();
-        const instName = await cResTokenInstance.name.call();
-
-        assert.equal(instName, "Celo Reserve Token", "Name is not correct");
-    });
-
-    it("Test symbol()", async() => {
-        const cResTokenInstance = await cResToken.deployed();
-        const instSymbol = await cResTokenInstance.symbol.call();
-
-        assert.equal(instSymbol, "cRES", "Symbol is not correct");
-    });
-
-    it("Test btcPrice()", async() =>{
-        const cResTokenInstance = await cResToken.deployed();
-        const instBalance = await cResTokenInstance.btcPrice.call();
-
-        console.log(parseInt(instBalance, 10));
-    });
-
-    // it("Test mintedBalance()", async() =>{
-    //     const cResTokenInstance = await cResToken.deployed();
-    //     const instMinter = await cResTokenInstance.minterStatus.call();
-
-    //     assert.equal(parseInt(instMinter, 10), 1000, "Minting broken");
-    // });
-
-    // it("Test mintedInCirculation()", async() =>{
-    //     const cResTokenInstance = await cResToken.deployed();
-    //     await cResTokenInstance._mint.call();
-    //     const supply = await cResTokenInstance.totalSupply.call(); // call supply() 
-        
-    //     console.log(supply);
-    // });
-
-    // it("Test thisAddress()", async() =>{
-    //     const cResTokenInstance = await cResToken.deployed();
-    //     const instAddy = await cResTokenInstance.thisAddress.call();
-
-    //     assert.equal(instAddy, 0x627306090abaB3A6e1400e9345bC60c78a8BEf57, "Address is incorrect");
-    // });
-
-    it("Test transferToken()", async() =>{
-        const cResTokenInstance = await cResToken.deployed();
-
-        const transferBool = await cResTokenInstance.exchange.transferToken.call(); 
-
-        assert.equal(1, 1, "BEEEST");
+    it("Test call()", async() => {
+        const contractLocation = "0x1134599Ec20682d7EcaD53d4E5d8e818a07D80B1";
+        const account = "0x3591A63b1986AE4080a196DF6C1b20A07c34678f";
     });
 });
    

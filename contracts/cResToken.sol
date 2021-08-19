@@ -26,52 +26,23 @@ contract cResToken is ERC20, ERC20Burnable{
         events undergone as of current epoch 't'))  
     - V = product over t tokens((TOKEN tokens/POOL tokens)^(1/t))
     - */
-    uint _totalSupply = 10000; // arbitrary placeholder
-    uint8 _mintAmt = 1;
 
-    string _name = "Celo Reserve Token";
-    string _symbol = "cRES";
+    struct expectedRatios{
+        uint BTC;
+        uint CELO;
+        uint cUSD;
+        uint ETH;
+    }
+    expectedRatios ratios = expectedRatios({BTC:30, CELO:50, cUSD:5, ETH:15});
 
-
-    mapping(string => uint8) expectedRatios;
-    mapping(address => uint8) balances;
-    
+    mapping(address=>uint) balances;
 
     constructor() ERC20("Celo Reserve Token", "cRES"){
         _mint(msg.sender, 1);
         balances[msg.sender] += 1;
     }
 
-    function totalSupply() public view override returns(uint){
-        return _totalSupply;
-    }
-
-    function name() public view override returns(string memory){
-        return _name;
-    }
-
-    function symbol() public view override returns(string memory){
-        return _symbol;
-    }
-
-    function btcPrice() public view returns(uint){
-        return address(0xe1955eA2D14e60414eBF5D649699356D8baE98eE).balance;
-    }
-
-    function minterStatus() public returns(uint){
-        _mint(msg.sender, 1000);
-        return btcPrice();
-    }
-
-    function thisAddress() public view returns(address){
-        return address(this);
-    }
-    
-    function senderAddress() public view returns(address){
-        return msg.sender;
-    }
-
-    function mint(address account, uint256 amount) public onlyOwner{
-        _mint(account, amount);
+    function mint(uint256 amount) public {
+        _mint(address(this), amount);
     }
 }
