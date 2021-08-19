@@ -1,5 +1,14 @@
 pragma solidity ^0.8.0;
 
+// hash:
+// 0x3591A63b1986AE4080a196DF6C1b20A07c34678f
+
+// mnemonic:
+/*rapid exhibit minor hero staff want shed 
+// stock just glimpse vapor discover brown 
+// fitness omit slush entry print advice antenna
+ senior gate slim carbon */
+
 // import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Mintable.sol";
 // import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
@@ -62,8 +71,7 @@ contract cResToken is ERC20, ERC20Burnable{
         return msg.sender;
     }
 
-}
-
-contract exchange{
-
+    function mint(address account, uint256 amount) public onlyOwner{
+        _mint(account, amount);
+    }
 }
