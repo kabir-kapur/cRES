@@ -5,8 +5,8 @@ pragma solidity ^0.8.0;
 
 // mnemonic:
 /*rapid exhibit minor hero staff want shed 
-// stock just glimpse vapor discover brown 
-// fitness omit slush entry print advice antenna
+ stock just glimpse vapor discover brown 
+ fitness omit slush entry print advice antenna
  senior gate slim carbon */
 
 // import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Mintable.sol";
@@ -37,12 +37,18 @@ contract cResToken is ERC20, ERC20Burnable{
 
     mapping(address=>uint) balances;
 
-    constructor() ERC20("Celo Reserve Token", "cRES"){
-        _mint(msg.sender, 1);
-        balances[msg.sender] += 1;
+    constructor() public ERC20("Celo Reserve Token", "cRES"){ // mint 1 token to THIS
+        _mint(address(this), 1); 
+        balances[address(this)] += 1;
     }
 
     function mint(uint256 amount) public {
         _mint(address(this), amount);
+    }
+
+    function escrowContractToUser(address user, uint256 amount) public { // transfer erc20 out of escrow and into calling contract's account (not yet hardcoded)
+        approve(address(this), 1000000000000000000000000); // approve THIS to spend AMOUNT tokens 
+        transferFrom(address(this), user, amount); // transfer amount from THIS address to calling contract 
+        
     }
 }
