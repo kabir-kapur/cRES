@@ -22,8 +22,8 @@ contract("cRESToken", accounts => { // contract instantiation
         console.log(await instance.balanceOf(contractLocation));
 
         // const minted = await instance.mint(amount);
-        const bought = instance.buy(amount);
-
+        const sent = instance.sendcRES(amount);
+        
         console.log(await instance.balanceOf(contractLocation));
     });
 });

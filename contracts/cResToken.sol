@@ -13,11 +13,9 @@ pragma solidity ^0.8.0;
 // import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
 
-contract cRESToken is ERC20, ERC20Burnable, ReentrancyGuard, Ownable{
+contract cRESToken is ERC20, ERC20Burnable{
     /*
     NEED TO MAKE:
     - constructor
@@ -29,6 +27,9 @@ contract cRESToken is ERC20, ERC20Burnable, ReentrancyGuard, Ownable{
     - V = product over t tokens((TOKEN tokens/POOL tokens)^(1/t))
     - */
 
+    IERC20 public cRES;
+    uint256 currentPrice = 1;
+
     struct expectedRatios{
         uint BTC;
         uint CELO;
@@ -38,7 +39,8 @@ contract cRESToken is ERC20, ERC20Burnable, ReentrancyGuard, Ownable{
     expectedRatios ratios = expectedRatios({BTC:30, CELO:50, cUSD:5, ETH:15});
 
     mapping(address=>uint) balances;
-    address tokenAddr; // uninstantiated token address
+
+    event Bought(uint256);
 
     constructor() public ERC20("Celo Reserve Token", "cRES"){ // mint 1 token to THIS
         _mint(address(this), 1); 
@@ -49,14 +51,15 @@ contract cRESToken is ERC20, ERC20Burnable, ReentrancyGuard, Ownable{
         _mint(address(this), amount);
     }
 
-    function sendcRES(uint256 _amount) nonReentrant external payable {
-        EIP20 token = EIP20(_tokenAddr);
+    function sendcRES(uint256 _amount) external payable {
         _mint(address(this), _amount); // mint AMOUNT tokens
-        token.transfer(msg.sender, _amount); // transfer AMOUNT tokens to msg.sender (is the contract accepting funds here?)
-        emit Transfer(msg.sender, address(this), _amount);
+        assert(_amount <= cRES.balanceOf(address(this)));
+        assert(_amount >= currentPrice);
+        transfer(msg.sender, _amount); // transfer AMOUNT worth of cRES
+        emit Bought(_amount);
     }
 
-    function receivecUSD(uint256 _amount) nonReentrant external payable {
+    function receivecUSD(uint256 _amount) external payable {
         transfer(address(this), _amount);
         emit Transfer(address(this), msg.sender, _amount);
     }
@@ -64,4 +67,8 @@ contract cRESToken is ERC20, ERC20Burnable, ReentrancyGuard, Ownable{
     function spotPrice() private returns(uint256){
         // fill in spot pricing math
     }
+
+    // function cRESBalance() external returns(uint256){
+    //     return 
+    // }
 }
