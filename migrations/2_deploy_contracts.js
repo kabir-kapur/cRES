@@ -1,5 +1,5 @@
-var cResToken = artifacts.require("./cResToken.sol");
+var cRESToken = artifacts.require("./cRESToken.sol");
 
 module.exports = function (deployer) {
-  deployer.deploy(cResToken);
+  deployer.deploy(cRESToken);
 };

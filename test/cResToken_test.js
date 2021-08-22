@@ -1,9 +1,9 @@
-const cResToken = artifacts.require("cResToken");
+const cRESToken = artifacts.require("cRESToken");
 const exchange = artifacts.require("exchange");
 
-contract("cResToken", accounts => { // contract instantiation
+contract("cRESToken", accounts => { // contract instantiation
     it("Test mint()", async() => { // mint() function test/escrow account test
-        const instance = await cResToken.deployed();
+        const instance = await cRESToken.deployed();
         // const account = "0x1134599Ec20682d7EcaD53d4E5d8e818a07D80B1";
         const contractLocation = instance.address; // address of deployed contract
         const amount = 10;
@@ -15,7 +15,7 @@ contract("cResToken", accounts => { // contract instantiation
     });
 
     it("Test buy()", async() => {
-        const instance = await cResToken.deployed();
+        const instance = await cRESToken.deployed();
         const amount = 10;
         const contractLocation = instance.address;
 

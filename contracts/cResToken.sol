@@ -13,9 +13,11 @@ pragma solidity ^0.8.0;
 // import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
 
-contract cResToken is ERC20, ERC20Burnable{
+contract cRESToken is ERC20, ERC20Burnable, ReentrancyGuard, Ownable{
     /*
     NEED TO MAKE:
     - constructor
@@ -36,6 +38,7 @@ contract cResToken is ERC20, ERC20Burnable{
     expectedRatios ratios = expectedRatios({BTC:30, CELO:50, cUSD:5, ETH:15});
 
     mapping(address=>uint) balances;
+    address tokenAddr; // uninstantiated token address
 
     constructor() public ERC20("Celo Reserve Token", "cRES"){ // mint 1 token to THIS
         _mint(address(this), 1); 
@@ -46,11 +49,16 @@ contract cResToken is ERC20, ERC20Burnable{
         _mint(address(this), amount);
     }
 
-    function buy(uint256 _amount) external payable {
+    function sendcRES(uint256 _amount) nonReentrant external payable {
+        EIP20 token = EIP20(_tokenAddr);
         _mint(address(this), _amount); // mint AMOUNT tokens
-        transfer(msg.sender, _amount); // transfer AMOUNT tokens to msg.sender (is the contract accepting funds here?)
-
+        token.transfer(msg.sender, _amount); // transfer AMOUNT tokens to msg.sender (is the contract accepting funds here?)
         emit Transfer(msg.sender, address(this), _amount);
+    }
+
+    function receivecUSD(uint256 _amount) nonReentrant external payable {
+        transfer(address(this), _amount);
+        emit Transfer(address(this), msg.sender, _amount);
     }
 
     function spotPrice() private returns(uint256){
