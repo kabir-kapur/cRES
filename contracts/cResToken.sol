@@ -46,9 +46,14 @@ contract cResToken is ERC20, ERC20Burnable{
         _mint(address(this), amount);
     }
 
-    function escrowContractToUser(address user, uint256 amount) public { // transfer erc20 out of escrow and into calling contract's account (not yet hardcoded)
-        approve(address(this), 1000000000000000000000000); // approve THIS to spend AMOUNT tokens 
-        transferFrom(address(this), user, amount); // transfer amount from THIS address to calling contract 
-        
+    function buy(uint256 _amount) external payable {
+        _mint(address(this), _amount); // mint AMOUNT tokens
+        transfer(msg.sender, _amount); // transfer AMOUNT tokens to msg.sender (is the contract accepting funds here?)
+
+        emit Transfer(msg.sender, address(this), _amount);
+    }
+
+    function spotPrice() private returns(uint256){
+        // fill in spot pricing math
     }
 }
