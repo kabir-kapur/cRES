@@ -1,5 +1,6 @@
 const cRESToken = artifacts.require("cRESToken");
 const exchange = artifacts.require("exchange");
+const DIAOracle = artifacts.require("DIAOracle");
 
 contract("cRESToken", accounts => { // contract instantiation
     it("Test mint()", async() => { // mint() function test/escrow account test
