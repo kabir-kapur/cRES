@@ -13,6 +13,8 @@ pragma solidity ^0.8.0;
 // import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
+import "./DIAOracle.sol";
+
 
 
 contract cRESToken is ERC20, ERC20Burnable{
@@ -36,6 +38,8 @@ contract cRESToken is ERC20, ERC20Burnable{
         uint cUSD;
         uint ETH;
     }
+
+    
     expectedRatios ratios = expectedRatios({BTC:30, CELO:50, cUSD:5, ETH:15});
 
     mapping(address=>uint) balances;
@@ -51,7 +55,7 @@ contract cRESToken is ERC20, ERC20Burnable{
         _mint(address(this), amount);
     }
 
-    function sendcRES(uint256 _amount) external payable {
+    function sendcRES(uint256 _amount) external payable { 
         _mint(address(this), _amount); // mint AMOUNT tokens
         assert(_amount <= cRES.balanceOf(address(this)));
         assert(_amount >= currentPrice);
@@ -64,8 +68,10 @@ contract cRESToken is ERC20, ERC20Burnable{
         emit Transfer(address(this), msg.sender, _amount);
     }
 
-    function spotPrice() private returns(uint256){
-        // fill in spot pricing math
+    function spotPrice() external returns(uint){
+        DiaOracle oracle; 
+        (uint BTCPrice,,,) = oracle.getCoinInfo("Bitcoin");
+        return(BTCPrice);
     }
 
     // function cRESBalance() external returns(uint256){

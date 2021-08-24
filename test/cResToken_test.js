@@ -14,7 +14,7 @@ contract("cRESToken", accounts => { // contract instantiation
         assert.equal(balance, amount + 1, "Contract balance does not match mint amount");
     });
 
-    it("Test buy()", async() => {
+    it("Test sendcRES()", async() => {
         const instance = await cRESToken.deployed();
         const amount = 10;
         const contractLocation = instance.address;
@@ -25,6 +25,11 @@ contract("cRESToken", accounts => { // contract instantiation
         const sent = instance.sendcRES(amount);
         
         console.log(await instance.balanceOf(contractLocation));
+    });
+
+    it("Test spotPrice()", async() => {
+        const instance = await cRESToken.deployed();
+        const spotPriced = await instance.spotPrice();
     });
 });
    
