@@ -29,7 +29,7 @@ contract("cRESToken", accounts => { // contract instantiation
 
     it("Test spotPrice()", async() => {
         const instance = await cRESToken.deployed();
-        const spotPriced = await instance.spotPrice();
+        const spotPriced = await instance.getBTC();
     });
 });
    

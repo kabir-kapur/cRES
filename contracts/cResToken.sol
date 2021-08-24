@@ -18,18 +18,6 @@ import "./DIAOracle.sol";
 
 
 contract cRESToken is ERC20, ERC20Burnable{
-    /*
-    NEED TO MAKE:
-    - constructor
-    - total # of tokens setter
-    - total # of tokens reader 
-    - V = product over t periods(TOKEN tokens/POOL tokens^(arbitrary
-        time-affected weight that devalues as a function of trading 
-        events undergone as of current epoch 't'))  
-    - V = product over t tokens((TOKEN tokens/POOL tokens)^(1/t))
-    - */
-
-    IERC20 public cRES;
     uint256 currentPrice = 1;
 
     struct expectedRatios{
@@ -39,7 +27,7 @@ contract cRESToken is ERC20, ERC20Burnable{
         uint ETH;
     }
 
-    
+    IERC20 public cRES;
     expectedRatios ratios = expectedRatios({BTC:30, CELO:50, cUSD:5, ETH:15});
 
     mapping(address=>uint) balances;
@@ -68,13 +56,25 @@ contract cRESToken is ERC20, ERC20Burnable{
         emit Transfer(address(this), msg.sender, _amount);
     }
 
-    function spotPrice() external returns(uint){
-        DiaOracle oracle; 
+    function getBTC() external returns(uint) {
+        DiaOracle oracle = DiaOracle(0xCd8E18890E416Aa7ab09aa793b406C187747C687); // declare oracle instance @ celo oracle location
         (uint BTCPrice,,,) = oracle.getCoinInfo("Bitcoin");
         return(BTCPrice);
     }
 
-    // function cRESBalance() external returns(uint256){
-    //     return 
-    // }
+    function getETH() private returns(uint) {
+        // privately retreive price of ETH
+    }
+
+    function getCELO() private returns(uint) {
+        // privately retreive price of CELO
+    }
+
+    function getDAI() private returns(uint) {
+        // privately retreive price of DAI
+    }
+
+    function spotPrice() private returns(uint256) {
+        // price the asset
+    }
 }
