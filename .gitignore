@@ -1,1 +1,2 @@
-/root/contracts/DIAOracle.sol
+contracts/DIAOracle.sol
+.gitignore
