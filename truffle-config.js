@@ -88,21 +88,18 @@ module.exports = {
     // network_id: 2111,   // This network is yours, in the cloud.
     // production: true    // Treats this network as if it was a public net. (default: false)
     // }
-    // development: {
-    //   host: "127.0.0.1",
-    //   port: "7545",
-    //   network_id: "*"
-    // },
 
-    celo: {
+    // geth development environment
+    development: {
       host: "127.0.0.1",
       port: "7545",
       network_id: "*"
+    },
+    // celo mainnet 
+    celo: {
+      url: 'https://forno.celo.org',
+      network_id: "*"
     }
-    // alfajores: {
-    //   provider: kit.connection.web3.currentProvider,
-    //   network_id: 44787
-    // }
   },
 
   // Set default mocha options here, use special reporters etc.

@@ -56,10 +56,14 @@ contract cRESToken is ERC20, ERC20Burnable{
         emit Transfer(address(this), msg.sender, _amount);
     }
 
-    function getBTC() external returns(uint) {
+    function getBTC() external view returns(uint) {
         DiaOracle oracle = DiaOracle(0xCd8E18890E416Aa7ab09aa793b406C187747C687); // declare oracle instance @ celo oracle location
-        (uint BTCPrice,,,) = oracle.getCoinInfo("Bitcoin");
-        return(BTCPrice);
+        uint256 price;
+        uint256 supply;
+        uint256 lastUpdateTimestamp;
+        string memory symbol;
+        (price, supply, lastUpdateTimestamp, symbol) = oracle.getCoinInfo("Bitcoin");
+        return price;
     }
 
     function getETH() private returns(uint) {
