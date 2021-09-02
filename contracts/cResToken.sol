@@ -1,6 +1,8 @@
 pragma solidity ^0.8.0;
 
-// hash:
+// SPDX-License-Identifier: <SPDX-License>
+
+// hash: 0x3591A63b1986AE4080a196DF6C1b20A07c34678f
 // 0x3591A63b1986AE4080a196DF6C1b20A07c34678f
 
 // mnemonic:
@@ -9,8 +11,6 @@ pragma solidity ^0.8.0;
  fitness omit slush entry print advice antenna
  senior gate slim carbon */
 
-// import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Mintable.sol";
-// import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
 import "./DIAOracle.sol";
@@ -34,7 +34,7 @@ contract cRESToken is ERC20, ERC20Burnable{
 
     event Bought(uint256);
 
-    constructor() public ERC20("Celo Reserve Token", "cRES"){ // mint 1 token to THIS
+    constructor() ERC20("Celo Reserve Token", "cRES"){ // mint 1 token to THIS
         _mint(address(this), 1); 
         balances[address(this)] += 1;
     }

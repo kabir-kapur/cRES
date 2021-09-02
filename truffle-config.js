@@ -28,17 +28,26 @@
 /*
 celo config
  */ 
-// const Web3 = require('web3')
-// const ContractKit = require('@celo/contractkit')
-// const web3 = new Web3('https://alfajores-forno.celo-testnet.org')
-// const kit = ContractKit.newKitFromWeb3(web3)
-// const getAccount = require('./getAccount').getAccount
+const Web3 = require('web3')
+const ContractKit = require('@celo/contractkit')
+const web3 = new Web3('https://alfajores-forno.celo-testnet.org')
+const kit = ContractKit.newKitFromWeb3(web3)
+const getAccount = require('./getAccount').getAccount
+
+async function awaitWrapper() {
+  let account = await getAccount();
+  kit.connection.addAccount(account.privateKey);
+}
+awaitWrapper();
 
 // async function awaitWrapper(){
 //     let account = await getAccount()
-//     kit.connection.addAccount(account.privateKey)
+    
 // }
 // awaitWrapper()
+
+// kit.connection.addAccount(account.privateKey) // this account must have a CELO balance to pay transaction fees
+
 
 module.exports = {
   /**
@@ -98,7 +107,13 @@ module.exports = {
     // celo mainnet 
     celo: {
       url: 'https://forno.celo.org',
-      network_id: "*"
+      network_id: 42220
+    },
+    alfajores: {
+      provider: kit.connection.web3.currentProvider,
+      //url: "",
+      network_id: 44787,
+      from: '0xBeE2d683c66E363e7eF01ae3094B1Cd9DA93d094' // celo mainnet empty wallet 
     }
   },
 
