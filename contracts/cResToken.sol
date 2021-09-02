@@ -81,4 +81,8 @@ contract cRESToken is ERC20, ERC20Burnable{
     function spotPrice() private returns(uint256) {
         // price the asset
     }
+
+    function test() {
+
+    }
 }
