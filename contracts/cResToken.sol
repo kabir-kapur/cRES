@@ -20,6 +20,8 @@ import "./DIAOracle.sol";
 contract cRESToken is ERC20, ERC20Burnable{
     uint256 currentPrice = 1;
 
+    DiaOracle oracle;
+
     struct expectedRatios{
         uint BTC;
         uint CELO;
@@ -34,9 +36,10 @@ contract cRESToken is ERC20, ERC20Burnable{
 
     event Bought(uint256);
 
-    constructor() ERC20("Celo Reserve Token", "cRES"){ // mint 1 token to THIS
+    constructor() ERC20("Celo Reserve Token", "cRES"){ // mint 1 token to a
         _mint(address(this), 1); 
         balances[address(this)] += 1;
+        oracle = DiaOracle(0xb73db1A6a85219742fbd0fC7cc275c62209aA660);
     }
 
     function mint(uint256 amount) public {
@@ -57,7 +60,8 @@ contract cRESToken is ERC20, ERC20Burnable{
     }
 
     function getBTC() external view returns(uint) {
-        DiaOracle oracle = DiaOracle(0xCd8E18890E416Aa7ab09aa793b406C187747C687); // declare oracle instance @ celo oracle location
+        // DiaOracle oracle = DiaOracle(0xCd8E18890E416Aa7ab09aa793b406C187747C687); // declare oracle instance @ celo oracle location
+        // DiaOracle oracle = DiaOracle(0xb73db1A6a85219742fbd0fC7cc275c62209aA660); // declare oracle instance @ kovan oracle location
         uint256 price;
         uint256 supply;
         uint256 lastUpdateTimestamp;

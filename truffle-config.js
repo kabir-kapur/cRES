@@ -18,12 +18,7 @@
  *
  */
 
-// const HDWalletProvider = require('@truffle/hdwallet-provider');
-// const infuraKey = "fj4jll3k.....";
-//
-// const fs = require('fs');
-// const mnemonic = fs.readFileSync(".secret").toString().trim();
- 
+require('dotenv').config();
 
 /*
 celo config
@@ -39,6 +34,20 @@ async function awaitWrapper() {
   kit.connection.addAccount(account.privateKey);
 }
 awaitWrapper();
+
+/*
+celo config
+*/
+
+/*
+ropsten config
+*/
+var HDWalletProvider = require("truffle-hdwallet-provider");
+const ROPSTEN_MNEMONIC = process.env.ENV_MNEMONIC_FOR_ROPSTEN; // store ropsten mnemonic in .env file
+
+/*
+ropsten config
+*/
 
 // async function awaitWrapper(){
 //     let account = await getAccount()
@@ -98,7 +107,7 @@ module.exports = {
     // production: true    // Treats this network as if it was a public net. (default: false)
     // }
 
-    // geth development environment
+    // local development environment
     development: {
       host: "127.0.0.1",
       port: "7545",
@@ -109,11 +118,29 @@ module.exports = {
       url: 'https://forno.celo.org',
       network_id: 42220
     },
+    // celo testnet
     alfajores: {
       provider: kit.connection.web3.currentProvider,
       //url: "",
       network_id: 44787,
       from: '0xBeE2d683c66E363e7eF01ae3094B1Cd9DA93d094' // celo mainnet empty wallet 
+    },
+    // kovan testnet
+    kovan: {
+      host: "127.0.0.1",
+      port: 8545,
+      network_id: 42,      
+      gas: 4612388    
+    },
+    // ropsten testnet
+    ropsten: {
+      provider: function() {
+        return new HDWalletProvider(ROPSTEN_MNEMONIC, "https://ropsten.infura.io/v3/8e4d2bdf933845018fa251e4fd45cc44")
+      },
+      network_id: 3,
+      gas: 4000000,
+      from: "0xad29a32eDEc2a0d0f0A447eD07b7213CBb7e383a",
+      networkCheckTimeout: 10000
     }
   },
 
