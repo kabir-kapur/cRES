@@ -21,7 +21,7 @@ contract("cRESToken", accounts => { // contract instantiation
 
         console.log(await instance.balanceOf(contractLocation));
 
-        // const minted = await instance.mint(amount);
+        // const minted = await instance.mint(amount);      
         const sent = instance.sendcRES(amount);
         
         console.log(await instance.balanceOf(contractLocation));
@@ -29,7 +29,10 @@ contract("cRESToken", accounts => { // contract instantiation
 
     it("Test spotPrice()", async() => {
         const instance = await cRESToken.deployed();
-        const spotPriced = await instance.getBTC();
+        const spotPriced = instance.spotPriceHard(); 
+        console.log(1061);
+        // console.log(await instance.spotPriceHard());
+        assert.equal(spotPriced, 1061, "FUCKKKKKK BROOOOoooo");
     });
 });
    
