@@ -16,38 +16,7 @@ pragma solidity ^0.8.7;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
-
-contract DIAOracleV2 {
-    mapping (string => uint256) public values;
-    address oracleUpdater;
-    
-    event OracleUpdate(string key, uint128 value, uint128 timestamp);
-    event UpdaterAddressChange(address newUpdater);
-    
-    constructor() {
-        oracleUpdater = msg.sender;
-    }
-    
-    function setValue(string memory key, uint128 value, uint128 timestamp) public {
-        require(msg.sender == oracleUpdater);
-        uint256 cValue = (((uint256)(value)) << 128) + timestamp;
-        values[key] = cValue;
-        emit OracleUpdate(key, value, timestamp);
-    }
-    
-    function getValue(string memory key) external view returns (uint128, uint128) {
-        uint256 cValue = values[key];
-        uint128 timestamp = (uint128)(cValue % 2**128);
-        uint128 value = (uint128)(cValue >> 128);
-        return (value, timestamp);
-    }
-    
-    function updateOracleUpdaterAddress(address newOracleUpdaterAddress) public {
-        require(msg.sender == oracleUpdater);
-        oracleUpdater = newOracleUpdaterAddress;
-        emit UpdaterAddressChange(newOracleUpdaterAddress);
-    }
-}
+import "./DIAOracleV2.sol";
 
 contract cRESToken is ERC20, ERC20Burnable{
     uint256 currentPrice = 1;
@@ -126,7 +95,7 @@ contract cRESToken is ERC20, ERC20Burnable{
         // privately retreive price of DAI
     }
 
-    function spotPrice() external returns(uint256) {
+    function spotPrice() external {
         uint256 btcAmt = mostRecentDeposit / btcPrice;
         uint256 celoAmt = mostRecentDeposit / celoPrice;
         uint256 ethAmt = mostRecentDeposit / ethPrice;
@@ -139,7 +108,7 @@ contract cRESToken is ERC20, ERC20Burnable{
 
         total = btcAmt + celoAmt + ethAmt + stableAmt;
 
-        return total;
+        emit uPrice(total);
     }
 
     function spotPriceHard() private pure returns(uint256){ // fully hard-coded values sheeeesh
